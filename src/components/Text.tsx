@@ -32,23 +32,23 @@ type Props<C extends ElementType, P> = PolymorphicComponent<C, P>;
 
 // Define a type that will be used to create the props
 // that will be passed to the component
-type PolimosphicComponentPropsWithRef<C extends ElementType, P> = PolymorphicComponent<C, P> & {
-  ref?: PolimosphicRef<C>;
+type PolymorphicComponentPropsWithRef<C extends ElementType, P> = PolymorphicComponent<C, P> & {
+  ref?: PolymorphicRef<C>;
 };
 
 // Define a type that will be used to create the props
 // that will be passed to the component
-type PolimosphicRef<C extends ElementType> = ComponentPropsWithRef<C>["ref"];
+type PolymorphicRef<C extends ElementType> = ComponentPropsWithRef<C>["ref"];
 
 // Define a type that will be used to create the component
 type TextComponent = <C extends ElementType>(
-  props: PolimosphicComponentPropsWithRef<C, TextProps>
+  props: PolymorphicComponentPropsWithRef<C, TextProps>
 ) => React.ReactElement | null;
 
 // Define the component
 export default forwardRef(function Text<C extends ElementType = "span">(
   { as, color, style, children, ...rest }: Props<C, TextProps>,
-  ref: PolimosphicRef<C>
+  ref: PolymorphicRef<C>
 ): JSX.Element {
   const Component = as || "span";
   const internalStyles = color ? { style: { ...style, color } } : {};

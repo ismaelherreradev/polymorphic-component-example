@@ -41,10 +41,12 @@ type PolimosphicComponentPropsWithRef<C extends ElementType, P> = PolymorphicCom
 type PolimosphicRef<C extends ElementType> = ComponentPropsWithRef<C>["ref"];
 
 // Define a type that will be used to create the component
-type TextComponent = <C extends ElementType>(props: PolimosphicComponentPropsWithRef<C, TextProps>) => React.ReactElement | null;
+type TextComponent = <C extends ElementType>(
+  props: PolimosphicComponentPropsWithRef<C, TextProps>
+) => React.ReactElement | null;
 
 // Define the component
-export const Text: TextComponent = forwardRef(function Text<C extends ElementType = "span">(
+export default forwardRef(function Text<C extends ElementType = "span">(
   { as, color, style, children, ...rest }: Props<C, TextProps>,
   ref: PolimosphicRef<C>
 ): JSX.Element {
@@ -56,4 +58,4 @@ export const Text: TextComponent = forwardRef(function Text<C extends ElementTyp
       {children}
     </Component>
   );
-});
+}) as TextComponent;

@@ -4,7 +4,7 @@
 
 # Boring Polymorphic Component Example
 
-```ts
+```tsx
 import { PropsWithChildren, ElementType, ComponentPropsWithoutRef, forwardRef, ComponentPropsWithRef } from "react";
 
 // Define a type that will be used to create a rainbow of colors
